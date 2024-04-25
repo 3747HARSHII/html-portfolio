@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Options</title>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Select an option:</h2>
+    <select id="options" onchange="showOptions()">
+        <option value="">Select...</option>
+        <option value="checkbox">Checkbox</option>
+        <option value="radiobutton">Radio Button</option>
+    </select>
+    <div id="checkboxOptions" class="hidden">
+        <h3>Checkbox Options:</h3>
+        <label><input type="checkbox"> Option 1</label><br>
+        <label><input type="checkbox"> Option 2</label><br>
+        <label><input type="checkbox"> Option 3</label><br>
+    </div>
+    <div id="radiobuttonOptions" class="hidden">
+        <h3>Radio Button Options:</h3>
+        <label><input type="radio" name="radioOptions"> Option A</label><br>
+        <label><input type="radio" name="radioOptions"> Option B</label><br>
+        <label><input type="radio" name="radioOptions"> Option C</label><br>
+    </div>
+</div>
+<script>
+    function showOptions() {
+        var selectedOption = document.getElementById("options").value;
+        var checkboxOptions = document.getElementById("checkboxOptions");
+        var radiobuttonOptions = document.getElementById("radiobuttonOptions");
+
+        if (selectedOption === "checkbox") {
+            checkboxOptions.classList.remove("hidden");
+            radiobuttonOptions.classList.add("hidden");
+        } else if (selectedOption === "radiobutton") {
+            radiobuttonOptions.classList.remove("hidden");
+            checkboxOptions.classList.add("hidden");
+        } else {
+            checkboxOptions.classList.add("hidden");
+            radiobuttonOptions.classList.add("hidden");
+        }
+    }
+</script>
+</body>
+</html>

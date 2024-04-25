@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Options on Click</title>
+</head>
+<body>
+
+<button id="addOptionsBtn" style="border: none; outline: none" type="button">Add more options</button>
+
+<script>
+    document.getElementById("addOptionsBtn").addEventListener("click", function() {
+        // Create elements
+        var label = document.createElement("label");
+        var checkbox = document.createElement("input");
+        var textInput = document.createElement("input");
+        
+        // Set attributes
+        checkbox.type = "checkbox";
+        textInput.type = "text";
+        textInput.placeholder = "Option";
+        
+        // Append elements
+        label.appendChild(checkbox);
+        label.appendChild(textInput);
+        document.body.appendChild(label); // Append to body or any other container
+        
+        // Hide the button
+        this.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
